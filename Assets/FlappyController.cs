@@ -24,4 +24,12 @@ public class FlappyController : MonoBehaviour
             Debug.Log("Pressed Space");
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("collided with obstacle");
+        }
+    }
 }
