@@ -59,6 +59,17 @@ MonoBehaviour:
   ceilingPlates:
   - {fileID: 9182636878351483180, guid: f8f8c87f5d24ea9448e38e42b28b9a28, type: 3}
   - {fileID: 1518936415241632984, guid: 7c4f4455cbe2c1a4194fe8b1012e20e6, type: 3}
+  internalObstaclePrefab: {fileID: 653304589511358450, guid: 507f69f5a8d88a74886ff7afacf54a83, type: 3}
+  minNumObstacles: 1
+  maxNumObstacles: 4
+  minObstacleSizeX: 10
+  maxObstacleSizeX: 30
+  minObstacleSizeY: 1
+  maxObstacleSizeY: 2
+  internalSpawnMinX: -20
+  internalSpawnMaxX: 20
+  internalSpawnMinY: -10
+  internalSpawnMaxY: 10
 --- !u!65 &1032519311002610954
 BoxCollider:
   m_ObjectHideFlags: 0
