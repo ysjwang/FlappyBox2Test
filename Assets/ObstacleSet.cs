@@ -6,11 +6,22 @@ public class ObstacleSet : MonoBehaviour
 {
 
     public float xSpeed;
+    public GameObject floorPlateAttach;
+    public List<GameObject> floorPlates;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject floorPlate = GameObject.Instantiate(PickRandomFloorPlate());
+        floorPlate.transform.parent = transform;
+        floorPlate.transform.position = floorPlateAttach.transform.position;
+
+    }
+
+    GameObject PickRandomFloorPlate()
+    {
+        int index = Random.Range(0, floorPlates.Count);
+        return floorPlates[index];
     }
 
     // Update is called once per frame
