@@ -11,6 +11,20 @@ public class ObstacleSet : MonoBehaviour
     public List<GameObject> floorPlates;
     public List<GameObject> ceilingPlates;
 
+    public GameObject internalObstaclePrefab;
+
+    public int minNumObstacles;
+    public int maxNumObstacles;
+    public float minObstacleSizeX;
+    public float maxObstacleSizeX;
+    public float minObstacleSizeY;
+    public float maxObstacleSizeY;
+
+    public float internalSpawnMinX;
+    public float internalSpawnMaxX;
+    public float internalSpawnMinY;
+    public float internalSpawnMaxY;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +36,30 @@ public class ObstacleSet : MonoBehaviour
         ceilingPlate.transform.parent = transform;
         ceilingPlate.transform.position = ceilingPlateAttach.transform.position;
 
+        SpawnInternalObstacles();
+
     }
+
+
+    void SpawnInternalObstacles()
+    {
+        int numObstacles = Random.Range(minNumObstacles, maxNumObstacles + 1);
+        for(int i = 0; i < numObstacles; i++)
+        {
+            float spawnX = Random.Range(internalSpawnMinX, internalSpawnMaxX);
+            float spawnY = Random.Range(internalSpawnMinY, internalSpawnMaxY);
+
+            float obstacleSizeX = Random.Range(minObstacleSizeX, maxObstacleSizeX);
+            float obstacleSizeY = Random.Range(minObstacleSizeY, maxObstacleSizeY);
+
+            GameObject internalObstacle = GameObject.Instantiate(internalObstaclePrefab);
+            internalObstacle.transform.parent = gameObject.transform;
+            internalObstacle.transform.localPosition = new Vector3(spawnX, spawnY, 0.0f);
+            internalObstacle.transform.localScale = new Vector3(obstacleSizeX, obstacleSizeY, 5.0f);
+
+        }
+    }
+
 
     GameObject RandomFloorPlate()
     {
