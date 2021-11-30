@@ -22,7 +22,6 @@ public class ObstacleSet : MonoBehaviour
     void DoMove()
     {
         transform.Translate(xSpeed, 0.0f, 0.0f);
-        Debug.Log("Doing move");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,6 +29,7 @@ public class ObstacleSet : MonoBehaviour
         if(other.CompareTag("ObstacleCleanup"))
         {
             Debug.Log("Obstacle getting cleaned up!");
+            Destroy(gameObject);
         }
     }
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstacle
   - ObstacleCleanup
+  - ObstacleSpawnTrigger
+  - SpawnTriggerHead
   layers:
   - Default
   - TransparentFX
